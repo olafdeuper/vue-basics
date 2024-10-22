@@ -1,0 +1,24 @@
+<!-- Object Syntax
+Conditional class list -->
+
+<div id="app">
+  <h1
+    :class="{
+    'bg-primary': bgPrimary,
+    'font-xl': fontXl
+  }"
+  >
+    Peter Parker is in love!
+  </h1>
+</div>
+
+<script>
+  Vue.createApp({
+    data() {
+      return {
+        bgPrimary: true,
+        fontXl: false,
+      };
+    },
+  }).mount("#app");
+</script>
