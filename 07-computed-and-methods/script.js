@@ -551,10 +551,12 @@ Vue.createApp({
     singleBook() {
       return Object.keys(this.books[0]).filter(
         (bookKeys) =>
-          bookKeys !== "id" &&
-          bookKeys !== "subtitle" &&
-          bookKeys !== "abstract" &&
-          bookKeys !== "isBookmarked"
+          bookKeys === "title" ||
+          bookKeys === "isbn" ||
+          bookKeys === "author" ||
+          bookKeys === "publisher" ||
+          bookKeys === "price" ||
+          bookKeys === "numPages"
       );
     },
 
