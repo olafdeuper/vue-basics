@@ -1,0 +1,54 @@
+@property --c-colordark {
+  syntax: "<color>";
+  initial-value: rgb(7, 153, 250);
+  inherits: false;
+}
+
+@property --c-colorlight {
+  syntax: "<color>";
+  initial-value: rgb(220, 241, 255);
+  inherits: false;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 24px;
+}
+
+.bgrdSky {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(var(--c-colordark), var(--c-colorlight));
+  transition: --c-colordark 3s, --c-colorlight 3s;
+}
+
+.nightSky {
+  --c-colordark: rgb(2, 1, 75);
+  --c-colorlight: rgb(42, 38, 255);
+}
+
+button {
+  font-size: 2rem;
+  padding: 1rem 3rem;
+  border: 0.5rem solid black;
+  border-radius: 0.1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: color 3s, border 3s, box-shadow 3s;
+}
+
+.nightButton {
+  color: aliceblue;
+  border: 0.5rem solid aliceblue;
+  box-shadow: 0.05rem 0.05rem 5rem 0.1rem gold,
+    -0.05rem -0.05rem 5rem 0.1rem gold;
+  background-color: rgb(4, 67, 109);
+}

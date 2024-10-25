@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Good Morning!</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="bgrdSky" :class="{nightSky: isActive}">
+        <button :class="{nightButton: isActive}" @click="toggleNightDay">
+          Toggle Light
+        </button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
