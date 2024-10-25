@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 24px;
+  font-family: monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: hotpink;
+}
+
+input {
+  margin: 1rem 1rem;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  background-color: rgba(255, 105, 180, 0.5);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  z-index: 10;
+}
+
+#red {
+  accent-color: red;
+}
+#green {
+  accent-color: green;
+  margin-left: -15rem;
+}
+
+#blue {
+  accent-color: blue;
+  margin-left: -15rem;
+}
+
+button {
+  font-size: 0.75rem;
+  margin-left: -15rem;
+  border: 0.15rem solid blue;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.9rem;
+}

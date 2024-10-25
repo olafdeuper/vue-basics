@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Color mixer</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <form :style="{background:activeFormColor}">
+          <input
+            type="range"
+            id="red"
+            step="1"
+            min="0"
+            max="255"
+            value="255"
+            v-model="rgbValues.red"
+          />
+          <input
+            type="range"
+            id="green"
+            step="1"
+            min="0"
+            max="255"
+            value="105"
+            v-model="rgbValues.green"
+          />
+          <input
+            type="range"
+            id="blue"
+            step="1"
+            min="0"
+            max="255"
+            value="180"
+            v-model="rgbValues.blue"
+          />
+          <button
+            :style="{border:'0.15rem solid ' + activeMainColor}"
+            @click.prevent="getRandomColor"
+          >
+            Random Color
+          </button>
+          <p id="colorValue">{{ buildColor }}</p>
+        </form>
+      </header>
+      <main :style="{background:activeMainColor}"></main>
+    </div>
+    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
