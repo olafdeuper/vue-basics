@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="todo-app">
+    <div id="app">
+      <h1>Todo App</h1>
+
+      <form class="todo-input">
+        <input
+          v-model.lazy="description"
+          type="text"
+          id="new-todo"
+          placeholder="Get sh*t done!"
+        />
+        <button v-on:click.prevent="addTodo" id="add-todo">Add</button>
+      </form>
+
+      <form
+        @change="filter=$event.target.id"
+        class="todo-filter"
+        id="todo-filter"
+      >
+        <h2>Filter & Options</h2>
+        <input
+          type="radio"
+          class="btn-radio"
+          name="todo-filter"
+          value="all"
+          id="filter-all"
+          checked
+        />
+        <label for="filter-all">All</label><br />
+        <input
+          type="radio"
+          class="btn-radio"
+          name="todo-filter"
+          value="open"
+          id="filter-open"
+        />
+        <label for="filter-open">Open</label><br />
+        <input
+          type="radio"
+          class="btn-radio"
+          name="todo-filter"
+          value="done"
+          id="filter-done"
+        />
+        <label for="filter-done">Done</label>
+      </form>
+
+      <form class="todo-actions">
+        <button @click.prevent="removeTodos" id="delete-todos">
+          Remove done Todos
+        </button>
+      </form>
+
+      <div class="todo-output">
+        <h2>Your Todos</h2>
+        <ul class="todo-list" id="todo-list">
+          <li
+            tabindex="0"
+            class="single-todo"
+            id="todo-li"
+            v-for="todo in filterTodos"
+            :key="todo.id"
+          >
+            <input
+              tabindex="-1"
+              type="checkbox"
+              id="todo-chk"
+              class="chk-done"
+              :checked="todo.done"
+              @change="todo.done=$event.target.checked"
+            />
+            <div>
+              <textarea
+                rows="2"
+                cols="25"
+                wrap="soft"
+                name="text-description"
+                id="text-description"
+                class="form-description"
+                @change="todo.description=$event.target.value"
+                :class="{'p-linethrough':todo.done}"
+                :disabled="todo.protected"
+              >
+{{todo.description}}</textarea
+              >
+            </div>
+            <button
+              @click.prevent="todo.protected=!todo.protected;todo.protected?$event.target.innerText='Edit ':$event.target.innerText='Get'"
+              id="edit-todo"
+            >
+              Edit
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
